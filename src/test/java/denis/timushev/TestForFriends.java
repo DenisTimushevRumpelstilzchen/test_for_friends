@@ -25,7 +25,8 @@ public class TestForFriends {
 
         Configuration.baseUrl = System.getProperty("pageUrl", "https://demoqa.com");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
+        CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class,
+                System.getProperties());
         Configuration.remote = "https://"+ config.login() + ":" + config.password() + "@"
                 + System.getProperty("remote", "selenoid.autotests.cloud/wd/hub" );
 
